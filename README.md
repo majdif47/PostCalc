@@ -34,12 +34,14 @@ RPN evaluates expressions efficiently using a stack, making it a popular choice 
 
 ### Installation
 ```bash
-   git clone https://github.com/your-username/rpn-calculator.git
-   cd rpn-calculator
-   go mod tidy
+   git clone https://github.com/majdif47/PostCalc.git
+   && cd PostCalc
+   && go mod tidy
+
+```
+```bash
    go run . <expression>
 ```
-
 ---
 ## ✨ Examples
 Basic Arithmetic
