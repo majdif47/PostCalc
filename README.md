@@ -38,55 +38,55 @@ RPN evaluates expressions efficiently using a stack, making it a popular choice 
 
 ```
 ```bash
-   go run . <expression>
+  go build -o pcal
 ```
 ---
 ## ✨ Examples
 Basic Arithmetic
 ```bash
-  go run main.go 3 5 +
+  ./pcal 3 5 +
 # Output: 8
 ```
 Trigonometry
 ```bash
-  go run main.go 3.14159 cos
+  ./pcal 3.14159 cos
   # Output: -1
   
-  go run main.go 0.5 sin
+  ./pcal 0.5 sin
   # Output: 0.479425538604203
 
 ```
 Logical Operations
 ```bash
-  go run main.go 5 3 and
+  ./pcal 5 3 and
   # Output: 1
   
-  go run main.go 5 3 or
+  ./pcal 5 3 or
   # Output: 7
   
-  go run main.go 5 3 xor
+  ./pcal 5 3 xor
   # Output: 6
   8
 ```
 Advanced Operations
 ```bash
-  go run main.go 9 sqrt
+  ./pcal 9 sqrt
   # Output: 3
   
-  go run main.go 2 3 pow
+  ./pcal 2 3 pow
   # Output: 8
   
-  go run main.go 5 fact
+  ./pcal 5 fact
   # Output: 120
 ```
 More Complex Examples
 ```bash
   # Complex expression with multiple operations
-  go run main.go 5 3 8 x 7 + - 
+  ./pcal 5 3 8 x 7 + - 
   # Output: -26
   
   # Using multiple functions
-  go run main.go 3.14159 2 pow 2 sqrt + sin
+  ./pcal 3.14159 2 pow 2 sqrt + sin
   # Output: -0.9587446221046463 
 ```
 
