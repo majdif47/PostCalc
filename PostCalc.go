@@ -5,8 +5,8 @@ import (
 	"math"
 	"os"
 	"strconv"
-
 	stack "github.com/majdif47/Go-dsa/ds/stacks"
+  "github.com/charmbracelet/lipgloss"
 )
 
 // Factorial function
@@ -95,8 +95,10 @@ func main() {
 
 	args := os.Args[1:]
 	s := stack.NewStack[float64]()
-
+  exp := "("
 	for _, arg := range args {
+    exp += " "
+    exp += arg
 		if num, err := strconv.ParseFloat(arg, 64); err == nil {
 			// Push numbers to stack
 			s.Push(num)
@@ -121,13 +123,32 @@ func main() {
 			}
 		}
 	}
+  exp += ")"
 
 	// Final result
 	if s.Size() != 1 {
 		fmt.Println("Error: Invalid expression")
 		return
 	}
-	result, _ := s.Pop()
-	fmt.Println(result)
+  var expression = lipgloss.NewStyle().
+    Bold(true).
+    Foreground(lipgloss.Color("#AD88C6")).
+    BorderStyle(lipgloss.RoundedBorder()).
+    BorderForeground(lipgloss.Color("#AD88C6")).
+    Width(100).
+    Align(lipgloss.Left)
+    fmt.Println(expression.Render(" Expression: \t",exp))
+
+
+  result, _ := s.Pop()
+  resultS := fmt.Sprintf(" Result: \t\t%f", result)
+  var res = lipgloss.NewStyle().
+    BorderStyle(lipgloss.RoundedBorder()).
+    Foreground(lipgloss.Color("#77B0AA")).
+    BorderForeground(lipgloss.Color("#77B0AA")).
+    Bold(true).
+    Width(100).
+    Align(lipgloss.Left)
+  fmt.Println(res.Render(resultS))
 }
 
